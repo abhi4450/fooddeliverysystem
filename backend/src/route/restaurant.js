@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var router = express_1.default.Router();
+var restaurant_1 = require("../controller/restaurant");
+var auth_1 = require("../library/auth");
+router.post("/restaurant", auth_1.default, restaurant_1.default.createRestaurant);
+router.get("/restaurants", auth_1.default, restaurant_1.default.getRestaurants);
+router.get("/restaurant/:id/menu", auth_1.default, restaurant_1.default.getRestaurantMenu);
+router.get("/restaurants/search", auth_1.default, restaurant_1.default.searchRestaurantByName);
+exports.default = router;
